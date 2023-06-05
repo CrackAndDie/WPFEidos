@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WPFEidos.Views;
 
 namespace WPFEidos.Models
 {
     internal class MainWindowModel : BindableBase
     {
+        private Page employeesPage = new EmployeesPageView();
+        private Page departmentsPage = new DepartmentsPageView();
+
         private Page windowContent;
         public Page WindowContent 
         {
@@ -42,12 +46,12 @@ namespace WPFEidos.Models
 
         private void OnEmployeesCommand()
         {
-
+            WindowContent = employeesPage;
         }
 
         private void OnDepartmentsCommand()
         {
-
+            WindowContent = departmentsPage;
         }
 
         private void OnOpenFileCommand()

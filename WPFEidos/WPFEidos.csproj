@@ -71,10 +71,20 @@
     <Compile Include="Models\Classes\Department.cs" />
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Room.cs" />
+    <Compile Include="Models\DepartmentsPageModel.cs" />
+    <Compile Include="Models\EmployeesPageModel.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="Models\Other\DataHolder.cs" />
     <Compile Include="Models\Other\RoleType.cs" />
+    <Compile Include="ViewModels\DepartmentsPageViewModel.cs" />
+    <Compile Include="ViewModels\EmployeesPageViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\DepartmentsPageView.xaml.cs">
+      <DependentUpon>DepartmentsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeesPageView.xaml.cs">
+      <DependentUpon>EmployeesPageView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,6 +97,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DepartmentsPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeesPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,8 +133,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

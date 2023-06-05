@@ -22,6 +22,9 @@ namespace WPFEidos.Models.Classes
         [JsonIgnore]
         public Department DepartmentObj => DataHolder.Departments.FirstOrDefault(x => x.Employees.Select(e => e.Id).Contains(Id));
 
+        [JsonIgnore]
+        public string FullName => string.Concat(Name, " ", Surname);
+
         public Employee() : this(lastId + 1) { }
 
         public Employee(int id)
