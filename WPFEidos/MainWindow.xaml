@@ -4,13 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFEidos"
+        xmlns:viewModels="clr-namespace:WPFEidos.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Eidos app" 
+        Height="450" 
+        Width="800"
+        MinHeight="400"
+        MinWidth="500"
+        x:Name="ThisWindow">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
         <Menu HorizontalAlignment="Left"
               Grid.ColumnSpan="1">
@@ -22,9 +36,25 @@
                           InputGestureText="Ctrl+O"
                           Command="{Binding OpenFileCommand}" />
                 <MenuItem Header="Exit"
-                          Command="{Binding CloseWindowCommand}"
+                          Command="{Binding ExitCommand}"
                           CommandParameter="{Binding ElementName=ThisWindow}" />
             </MenuItem>
         </Menu>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <Button Height="40"
+                    Content="Сотрудники"
+                    Margin="10"
+                    Command="{Binding EmployeesCommand}"/>
+            <Button Height="40"
+                    Content="Отделы"
+                    Margin="10"
+                    Command="{Binding DepartmentsCommand}"/>
+        </StackPanel>
+
+        <Frame Grid.Row="1"
+            Grid.Column="1"
+            NavigationUIVisibility="Hidden"
+            Content="{Binding WindowContent}"/>
     </Grid>
 </Window>
