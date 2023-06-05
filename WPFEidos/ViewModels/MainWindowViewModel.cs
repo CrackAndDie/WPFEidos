@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WPFEidos.Models;
+using WPFEidos.Models.Classes;
 
 namespace WPFEidos.ViewModels
 {

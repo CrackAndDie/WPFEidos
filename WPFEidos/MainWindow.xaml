@@ -41,7 +41,8 @@
             </MenuItem>
         </Menu>
 
-        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" 
+                    VerticalAlignment="Center">
             <Button Height="40"
                     Content="Сотрудники"
                     Margin="10"
