@@ -14,12 +14,31 @@
     </Page.DataContext>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Add Employee"
+                    Margin="5, 0"
+                    Command="{Binding AddEmployeeCommand}" />
+            <Button Content="Edit Employee"
+                    Margin="5, 0"
+                    Command="{Binding EditEmployeeCommand}" />
+            <Button Content="Remove Employee"
+                    Margin="5, 0"
+                    Command="{Binding RemoveEmployeeCommand}" />
+        </StackPanel>
+
         <!--I wanted to use ListView at first but it looked like cringe-->
         <DataGrid ItemsSource="{Binding EmployeesList}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
-                  ColumnWidth="*">
+                  ColumnWidth="*"
+                  Grid.Row="1"
+                  SelectedItem="{Binding SelectedEmployee}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"/>
                 <DataGridTextColumn Header="Role" Binding="{Binding Role}"/>

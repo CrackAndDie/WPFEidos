@@ -1,0 +1,38 @@
+﻿<Window x:Class="WPFEidos.Views.EmployeeWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFEidos.Views"
+        mc:Ignorable="d"
+        Title="EmployeeWindowView" 
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterOwner"
+        x:Name="ThisWindow">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="Name" />
+            <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            <TextBlock Text="Surname" />
+            <TextBox Text="{Binding Surname, Mode=TwoWay}" />
+            <TextBlock Text="Role" />
+            <ComboBox ItemsSource="{Binding AvailableRoles}"
+                      SelectedItem="{Binding NewSelectedRole, Mode=TwoWay}"/>
+            <TextBlock Text="Salary" />
+            <TextBox Text="{Binding Salary, Mode=TwoWay}" />
+            <TextBlock Text="Department" />
+            <ComboBox ItemsSource="{Binding AvailableDepartments}"
+                      SelectedItem="{Binding NewSelectedDepartment, Mode=TwoWay}"
+                      DisplayMemberPath="Name" />
+            <Button Width="60"
+                    Height="30"
+                    Content="Save"
+                    Margin="20"
+                    Command="{Binding SaveCommand}"
+                    CommandParameter="{Binding ElementName=ThisWindow}" />
+        </StackPanel>
+    </Grid>
+</Window>

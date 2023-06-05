@@ -20,5 +20,15 @@ namespace WPFEidos.Models.Other
             view.DataContext = vm;
             view.ShowDialog();
         }
+
+        public static void ShowEmployeeWindow(Employee employee)
+        {
+            EmployeeWindowView view = new EmployeeWindowView();
+            EmployeeWindowViewModel vm = new EmployeeWindowViewModel(employee);
+            // not pure mvvm way
+            view.Owner = System.Windows.Application.Current.MainWindow;
+            view.DataContext = vm;
+            view.ShowDialog();
+        }
     }
 }

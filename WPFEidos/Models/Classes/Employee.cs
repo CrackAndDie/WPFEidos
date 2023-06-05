@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using WPFEidos.Models.Other;
 
 namespace WPFEidos.Models.Classes
 {
-    public class Employee
+    public class Employee : BindableBase
     {
         [JsonIgnore]
         private static int lastId => DataHolder.Employees.Count > 0 ? DataHolder.Employees.Max(x => x.Id) : 1;
@@ -30,6 +31,12 @@ namespace WPFEidos.Models.Classes
         public Employee(int id)
         {
             Id = id;
+        }
+
+        public void RaiseChanged()
+        {
+            RaisePropertyChanged("DepartmentObj");
+            RaisePropertyChanged("FullName");
         }
     }
 }

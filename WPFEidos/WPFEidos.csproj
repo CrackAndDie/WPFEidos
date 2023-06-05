@@ -74,6 +74,7 @@
     <Compile Include="Models\DepartmentsPageModel.cs" />
     <Compile Include="Models\DepartmentWindowModel.cs" />
     <Compile Include="Models\EmployeesPageModel.cs" />
+    <Compile Include="Models\EmployeeWindowModel.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="Models\Other\DataHolder.cs" />
     <Compile Include="Models\Other\Functions.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="ViewModels\DepartmentsPageViewModel.cs" />
     <Compile Include="ViewModels\DepartmentWindowViewModel.cs" />
     <Compile Include="ViewModels\EmployeesPageViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\DepartmentsPageView.xaml.cs">
       <DependentUpon>DepartmentsPageView.xaml</DependentUpon>
@@ -91,6 +93,9 @@
     </Compile>
     <Compile Include="Views\EmployeesPageView.xaml.cs">
       <DependentUpon>EmployeesPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeWindowView.xaml.cs">
+      <DependentUpon>EmployeeWindowView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EmployeesPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
