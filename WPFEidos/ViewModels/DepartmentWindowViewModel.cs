@@ -22,6 +22,12 @@ namespace WPFEidos.ViewModels
             set { model.Name = value; }
         }
 
+        public string Address
+        {
+            get { return model.Address; }
+            set { model.Address = value; }
+        }
+
         public ObservableCollection<Room> AvailableRooms
         {
             get { return model.AvailableRooms; }

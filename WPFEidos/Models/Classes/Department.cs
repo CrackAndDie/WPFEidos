@@ -16,6 +16,7 @@ namespace WPFEidos.Models.Classes
         private static int lastId => DataHolder.Departments.Count > 0 ? DataHolder.Departments.Max(x => x.Id) : 1;
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Address { get; set; }
 
         [JsonIgnore]
         public List<Room> Rooms => DataHolder.Rooms.Where(x => x.DepartmentId == Id).ToList();
@@ -29,10 +30,17 @@ namespace WPFEidos.Models.Classes
             Id = id;
         }
 
-        public void RaiseChanged()
+        public void RaiseChanged(bool fromEmployee = false)
         {
             RaisePropertyChanged("Rooms");
             RaisePropertyChanged("Employees");
+            if (!fromEmployee)
+            {
+                foreach (var e in Employees)
+                {
+                    e.RaiseChanged();
+                }
+            }
         }
     }
 }

@@ -37,6 +37,7 @@ namespace WPFEidos.Models.Classes
         {
             RaisePropertyChanged("DepartmentObj");
             RaisePropertyChanged("FullName");
+            DepartmentObj?.RaiseChanged(true);
         }
     }
 }

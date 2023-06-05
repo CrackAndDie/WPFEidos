@@ -27,7 +27,7 @@ namespace WPFEidos.Models.Other
             Employees.Add(new Employee() { Name = "Egor", Surname = "Egorov", Role = RoleType.Middle, Salary = 80000, DepartmentId = 1, });
             Employees.Add(new Employee() { Name = "Petr", Surname = "Petrov", Role = RoleType.Senior, Salary = 130000, });
 
-            Departments.Add(new Department(1) { Name = "Main Department" });
+            Departments.Add(new Department(1) { Name = "Main Department", Address = "Pushkina, 15" });
 
             Rooms.Add(new Room() { RoomNumber = 1, DepartmentId = 1, });
             Rooms.Add(new Room() { RoomNumber = 2, DepartmentId = 1, });

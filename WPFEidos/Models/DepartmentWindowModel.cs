@@ -28,6 +28,13 @@ namespace WPFEidos.Models
             set { SetProperty(ref name, value); }
         }
 
+        private string address;
+        public string Address
+        {
+            get { return address; }
+            set { SetProperty(ref address, value); }
+        }
+
         private Room selectedRoom;
         public Room SelectedRoom
         {
@@ -82,6 +89,7 @@ namespace WPFEidos.Models
 
             // could be used directly to binding but I don't care :)
             Name = department.Name;
+            Address = department.Address;
 
             AddRoomCommand = new DelegateCommand(OnAddRoomCommand);
             RemoveRoomCommand = new DelegateCommand(OnRemoveRoomCommand);
@@ -143,7 +151,13 @@ namespace WPFEidos.Models
                 MessageBox.Show("Name cannot be empty");
                 return;
             }
+            if (string.IsNullOrEmpty(Address))
+            {
+                MessageBox.Show("Address cannot be empty");
+                return;
+            }
             CurrentDepartment.Name = Name;
+            CurrentDepartment.Address = Address;
 
             // this all is done because of copying rooms. If I won't copy the rooms there won't be button Save. 
             // If there is no button Save - the app is a cringe

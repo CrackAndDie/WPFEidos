@@ -16,6 +16,8 @@
                     Width="200">
             <TextBlock Text="Name" />
             <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            <TextBlock Text="Address" />
+            <TextBox Text="{Binding Address, Mode=TwoWay}" />
             <TextBlock Text="Rooms" />
             <ListView ItemsSource="{Binding CurrentRooms}"
                       SelectedItem="{Binding SelectedRoom}">
