@@ -23,8 +23,9 @@ namespace WPFEidos.Models.Other
 
         private static void AddDefaultData()
         {
-            Employees.Add(new Employee() { Name = "Egor", Surname = "Aksenov", Role = RoleType.Junior, Salary = 30000, DepartmentId = 1, });
-            Employees.Add(new Employee() { Name = "Askar", Surname = "Shpalitov", Role = RoleType.Middle, Salary = 80000, DepartmentId = 1, });
+            Employees.Add(new Employee() { Name = "Ivan", Surname = "Ivanov", Role = RoleType.Junior, Salary = 30000, DepartmentId = 1, });
+            Employees.Add(new Employee() { Name = "Egor", Surname = "Egorov", Role = RoleType.Middle, Salary = 80000, DepartmentId = 1, });
+            Employees.Add(new Employee() { Name = "Petr", Surname = "Petrov", Role = RoleType.Senior, Salary = 130000, });
 
             Departments.Add(new Department(1) { Name = "Main Department" });
 

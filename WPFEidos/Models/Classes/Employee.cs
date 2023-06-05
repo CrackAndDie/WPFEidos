@@ -11,7 +11,7 @@ namespace WPFEidos.Models.Classes
     public class Employee
     {
         [JsonIgnore]
-        private static int lastId => DataHolder.Employees.Count > 0 ? DataHolder.Employees.Max(x => x.Id) : 0;
+        private static int lastId => DataHolder.Employees.Count > 0 ? DataHolder.Employees.Max(x => x.Id) : 1;
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

@@ -11,7 +11,7 @@ namespace WPFEidos.Models.Classes
     public class Room
     {
         [JsonIgnore]
-        private static int lastId => DataHolder.Rooms.Count > 0 ? DataHolder.Rooms.Max(x => x.Id) : 0;
+        private static int lastId => DataHolder.Rooms.Count > 0 ? DataHolder.Rooms.Max(x => x.Id) : 1;
         public int Id { get; set; }
         public int RoomNumber { get; set; } 
         public int DepartmentId { get; set; }

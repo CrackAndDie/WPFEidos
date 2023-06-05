@@ -72,15 +72,22 @@
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Room.cs" />
     <Compile Include="Models\DepartmentsPageModel.cs" />
+    <Compile Include="Models\DepartmentWindowModel.cs" />
     <Compile Include="Models\EmployeesPageModel.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="Models\Other\DataHolder.cs" />
+    <Compile Include="Models\Other\Functions.cs" />
     <Compile Include="Models\Other\RoleType.cs" />
+    <Compile Include="Models\Other\WindowHelper.cs" />
     <Compile Include="ViewModels\DepartmentsPageViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentWindowViewModel.cs" />
     <Compile Include="ViewModels\EmployeesPageViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\DepartmentsPageView.xaml.cs">
       <DependentUpon>DepartmentsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentWindowView.xaml.cs">
+      <DependentUpon>DepartmentWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EmployeesPageView.xaml.cs">
       <DependentUpon>EmployeesPageView.xaml</DependentUpon>
@@ -98,6 +105,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\DepartmentsPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DepartmentWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

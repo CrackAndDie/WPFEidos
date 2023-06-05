@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +10,13 @@ using WPFEidos.Models.Other;
 
 namespace WPFEidos.Models.Classes
 {
-    public class Department
+    public class Department : BindableBase
     {
         [JsonIgnore]
-        private static int lastId => DataHolder.Departments.Count > 0 ? DataHolder.Departments.Max(x => x.Id) : 0;
+        private static int lastId => DataHolder.Departments.Count > 0 ? DataHolder.Departments.Max(x => x.Id) : 1;
         public int Id { get; set; }
         public string Name { get; set; }
+
         [JsonIgnore]
         public List<Room> Rooms => DataHolder.Rooms.Where(x => x.DepartmentId == Id).ToList();
         [JsonIgnore]
@@ -24,6 +27,12 @@ namespace WPFEidos.Models.Classes
         public Department(int id)
         {
             Id = id;
+        }
+
+        public void RaiseChanged()
+        {
+            RaisePropertyChanged("Rooms");
+            RaisePropertyChanged("Employees");
         }
     }
 }
