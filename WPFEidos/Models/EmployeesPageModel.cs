@@ -15,7 +15,7 @@ namespace WPFEidos.Models
 {
     internal class EmployeesPageModel : BindableBase
     {
-        public ObservableCollection<Employee> Employees => DataHolder.Employees;
+        public ObservableCollection<Employee> Employees => DataHolder.Instance.Employees;
 
         private Employee selectedEmployee;
         public Employee SelectedEmployee
@@ -57,7 +57,7 @@ namespace WPFEidos.Models
         {
             if (SelectedEmployee != null)
             {
-                DataHolder.Employees.Remove(SelectedEmployee);
+                DataHolder.Instance.Employees.Remove(SelectedEmployee);
                 return;
             }
             MessageBox.Show("Select employee to remove");

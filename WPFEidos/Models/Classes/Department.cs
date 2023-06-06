@@ -13,15 +13,15 @@ namespace WPFEidos.Models.Classes
     public class Department : BindableBase
     {
         [JsonIgnore]
-        private static int lastId => DataHolder.Departments.Count > 0 ? DataHolder.Departments.Max(x => x.Id) : 1;
+        private static int lastId => DataHolder.Instance.Departments.Count > 0 ? DataHolder.Instance.Departments.Max(x => x.Id) : 1;
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
 
         [JsonIgnore]
-        public List<Room> Rooms => DataHolder.Rooms.Where(x => x.DepartmentId == Id).ToList();
+        public List<Room> Rooms => DataHolder.Instance.Rooms.Where(x => x.DepartmentId == Id).ToList();
         [JsonIgnore]
-        public List<Employee> Employees => DataHolder.Employees.Where(x => x.DepartmentId == Id).ToList();
+        public List<Employee> Employees => DataHolder.Instance.Employees.Where(x => x.DepartmentId == Id).ToList();
 
         public Department() : this(lastId + 1) { }
 

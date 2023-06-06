@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WPFEidos.Models.Other;
 using WPFEidos.Views;
 
 namespace WPFEidos.Models
@@ -56,12 +59,42 @@ namespace WPFEidos.Models
 
         private void OnOpenFileCommand()
         {
-            
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Browse JSON File",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "json",
+                Filter = "JSON files (*.json)|*.json",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                DataManager.LoadFromFile(openFileDialog.FileName);
+            }
         }
 
         private void OnSaveFileCommand()
         {
-            
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "JSON file (*.json)|*.json",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                ValidateNames = true,
+                OverwritePrompt = true,
+                AddExtension = true
+            };
+            if ((bool)saveFileDialog.ShowDialog())
+            {
+                DataManager.SaveToFile(saveFileDialog.FileName);
+            }
         }
 
         private void OnExitCommand(object parameter)

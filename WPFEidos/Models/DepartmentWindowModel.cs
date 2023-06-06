@@ -82,9 +82,9 @@ namespace WPFEidos.Models
         public DepartmentWindowModel(Department department)
         {
             CurrentDepartment = department;
-            AvailableRooms = DataHolder.Rooms.Where(x => x.DepartmentId == 0).ToObservableCollection();
+            AvailableRooms = DataHolder.Instance.Rooms.Where(x => x.DepartmentId == 0).ToObservableCollection();
             CurrentRooms = CurrentDepartment.Rooms.ToObservableCollection();
-            AvailableEmployees = DataHolder.Employees.Where(x => x.DepartmentId == 0).ToObservableCollection();
+            AvailableEmployees = DataHolder.Instance.Employees.Where(x => x.DepartmentId == 0).ToObservableCollection();
             CurrentEmployees = CurrentDepartment.Employees.ToObservableCollection();
 
             // could be used directly to binding but I don't care :)
@@ -145,7 +145,7 @@ namespace WPFEidos.Models
 
         private void OnSaveCommand(object parameter)
         {
-            var exists = DataHolder.Departments.Contains(CurrentDepartment);
+            var exists = DataHolder.Instance.Departments.Contains(CurrentDepartment);
             if (string.IsNullOrEmpty(Name))
             {
                 MessageBox.Show("Name cannot be empty");
@@ -181,7 +181,7 @@ namespace WPFEidos.Models
 
             if (!exists)
             {
-                DataHolder.Departments.Add(CurrentDepartment);
+                DataHolder.Instance.Departments.Add(CurrentDepartment);
             }
             CurrentDepartment.RaiseChanged();
             (parameter as Window).Close();

@@ -12,7 +12,7 @@ namespace WPFEidos.Models.Classes
     public class Employee : BindableBase
     {
         [JsonIgnore]
-        private static int lastId => DataHolder.Employees.Count > 0 ? DataHolder.Employees.Max(x => x.Id) : 1;
+        private static int lastId => DataHolder.Instance.Employees.Count > 0 ? DataHolder.Instance.Employees.Max(x => x.Id) : 1;
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -21,7 +21,7 @@ namespace WPFEidos.Models.Classes
         public int DepartmentId { get; set; }
 
         [JsonIgnore]
-        public Department DepartmentObj => DataHolder.Departments.FirstOrDefault(x => x.Employees.Select(e => e.Id).Contains(Id));
+        public Department DepartmentObj => DataHolder.Instance.Departments.FirstOrDefault(x => x.Employees.Select(e => e.Id).Contains(Id));
 
         [JsonIgnore]
         public string FullName => string.Concat(Name, " ", Surname);

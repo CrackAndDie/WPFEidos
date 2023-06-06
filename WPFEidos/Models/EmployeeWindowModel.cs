@@ -69,7 +69,7 @@ namespace WPFEidos.Models
             CurrentEmployee = employee;
 
             AvailableRoles = Enum.GetValues(typeof(RoleType)).Cast<RoleType>().ToObservableCollection();
-            AvailableDepartments = DataHolder.Departments;
+            AvailableDepartments = DataHolder.Instance.Departments;
 
             NewSelectedRole = CurrentEmployee.Role;
             NewSelectedDepartment = CurrentEmployee.DepartmentObj;
@@ -84,7 +84,7 @@ namespace WPFEidos.Models
 
         private void OnSaveCommand(object parameter)
         {
-            var exists = DataHolder.Employees.Contains(CurrentEmployee);
+            var exists = DataHolder.Instance.Employees.Contains(CurrentEmployee);
             if (string.IsNullOrEmpty(Name))
             {
                 MessageBox.Show("Name cannot be empty");
@@ -108,7 +108,7 @@ namespace WPFEidos.Models
 
             if (!exists)
             {
-                DataHolder.Employees.Add(CurrentEmployee);
+                DataHolder.Instance.Employees.Add(CurrentEmployee);
             }
             CurrentEmployee.RaiseChanged();
             (parameter as Window).Close();

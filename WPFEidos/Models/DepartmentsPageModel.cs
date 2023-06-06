@@ -16,7 +16,7 @@ namespace WPFEidos.Models
 {
     internal class DepartmentsPageModel : BindableBase
     {
-        public ObservableCollection<Department> Departments => DataHolder.Departments;
+        public ObservableCollection<Department> Departments => DataHolder.Instance.Departments;
 
         private Department selectedDepartment;
         public Department SelectedDepartment
@@ -58,7 +58,7 @@ namespace WPFEidos.Models
         {
             if (SelectedDepartment != null)
             {
-                DataHolder.Departments.Remove(SelectedDepartment);
+                DataHolder.Instance.Departments.Remove(SelectedDepartment);
                 return;
             }
             MessageBox.Show("Select department to remove");
