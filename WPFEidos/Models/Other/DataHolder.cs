@@ -20,7 +20,10 @@ namespace WPFEidos.Models.Other
             get 
             { 
                 if (instance == null)
+                {
                     instance = new DataHolder();
+                    DataManager.AddDefaultData();
+                }
                 return instance;
             }
             set
