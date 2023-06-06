@@ -37,5 +37,25 @@ namespace WPFEidos.Models.Other
         public ObservableCollection<Department> Departments = new ObservableCollection<Department>();
 
         public ObservableCollection<Room> Rooms = new ObservableCollection<Room>();
+
+        // this is because of ObservableCollections so they could be updated in DataGrids
+        public static void SetNewData(DataHolder data)
+        {
+            Instance.Employees.Clear();
+            foreach (Employee emp in data.Employees)
+            {
+                Instance.Employees.Add(emp);
+            }
+            Instance.Rooms.Clear();
+            foreach (Room room in data.Rooms)
+            {
+                Instance.Rooms.Add(room);
+            }
+            Instance.Departments.Clear();
+            foreach (Department dep in data.Departments)
+            {
+                Instance.Departments.Add(dep);
+            }
+        }
     }
 }

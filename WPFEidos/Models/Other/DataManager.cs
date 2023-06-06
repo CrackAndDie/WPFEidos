@@ -31,7 +31,7 @@ namespace WPFEidos.Models.Other
         {
             string text = File.ReadAllText(fileName);
             DataHolder dh = JsonConvert.DeserializeObject<DataHolder>(text);
-            DataHolder.Instance = dh;
+            DataHolder.SetNewData(dh);
         }
 
         public static void SaveToFile(string fileName)
